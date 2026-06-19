@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,20 +10,6 @@ import {
   address, phoneDisplay, phoneDisplayAlt, email, hours, mapEmbedUrl, instagram,
   whatsappLink, telLink, closedDays,
 } from "@/lib/site";
-
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact & Book — Dr. Maitri's Dental Care, Goregaon West" },
-      { name: "description", content: "Book your dental appointment in Goregaon West, Mumbai. Call, WhatsApp or use our form." },
-      { property: "og:title", content: "Contact & Book — Dr. Maitri's Dental Care" },
-      { property: "og:description", content: "Book your dental appointment in Goregaon West, Mumbai." },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-  component: ContactPage,
-});
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(80),
@@ -40,7 +25,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-function ContactPage() {
+export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit, formState: { errors, isSubmitting }, watch, reset } =
     useForm<FormData>({ resolver: zodResolver(schema), mode: "onTouched" });

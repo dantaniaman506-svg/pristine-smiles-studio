@@ -1,5 +1,5 @@
 import logoAsset from "@/assets/logo.png.asset.json";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { clinicName } from "@/lib/site";
 
 interface LogoProps {

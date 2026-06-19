@@ -1,25 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 import { galleryItems, galleryCategories } from "@/lib/data";
 
-export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: "Gallery — Dr. Maitri's Dental Care, Goregaon West" },
-      { name: "description", content: "Step inside Dr. Maitri's Dental Care — see our modern clinic, treatment room and advanced equipment." },
-      { property: "og:title", content: "Gallery — Dr. Maitri's Dental Care" },
-      { property: "og:description", content: "A look inside our modern, welcoming clinic in Goregaon West." },
-      { property: "og:url", content: "/gallery" },
-    ],
-    links: [{ rel: "canonical", href: "/gallery" }],
-  }),
-  component: GalleryPage,
-});
-
-function GalleryPage() {
+export default function GalleryPage() {
   const [cat, setCat] = useState("all");
   const items = useMemo(
     () => (cat === "all" ? galleryItems : galleryItems.filter((g) => g.category === cat)),

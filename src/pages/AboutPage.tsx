@@ -1,25 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 import { aboutAchievements, specialisations } from "@/lib/data";
 import { doctorName, doctorCredentials, whatsappLink } from "@/lib/site";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Dr. Maitri Patel Kova — Aesthetic Dentist & Implantologist" },
-      { name: "description", content: "Meet Dr. Maitri Patel Kova — BDS, Certified Aesthetic Dentist, Certified Implantologist. Gentle, premium dental care in Goregaon West, Mumbai." },
-      { property: "og:title", content: "About Dr. Maitri — Dr. Maitri's Dental Care" },
-      { property: "og:description", content: "Aesthetic Dentist & Certified Implantologist in Goregaon West, Mumbai." },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
-  component: AboutPage,
-});
-
-function AboutPage() {
+export default function AboutPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12">
       <section className="grid gap-10 lg:grid-cols-[1fr_1.2fr] items-center">

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Star,
@@ -14,21 +14,6 @@ import { Reveal } from "@/components/Reveal";
 import { features, stats, processSteps, reviews, treatments, clinicEntranceUrl, clinicRoomUrl } from "@/lib/data";
 import { whatsappLink, telLink, doctorName, doctorCredentials, addressShort } from "@/lib/site";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Dr. Maitri's Dental Care — Premium Dentist in Goregaon West, Mumbai" },
-      { name: "description", content: "Creating healthy & beautiful smiles. Dental implants, cosmetic dentistry, orthodontics and more by Dr. Maitri Patel Kova in Goregaon West, Mumbai." },
-      { property: "og:title", content: "Dr. Maitri's Dental Care — Premium Dentist in Goregaon West, Mumbai" },
-      { property: "og:description", content: "Creating healthy & beautiful smiles. Book your appointment with Dr. Maitri Patel Kova." },
-      { property: "og:image", content: clinicEntranceUrl },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
-  component: HomePage,
-});
-
 const heroStats = [
   { icon: Star, label: "5.0★ Google" },
   { icon: HeartHandshake, label: "Gentle Care" },
@@ -36,7 +21,7 @@ const heroStats = [
   { icon: MapPin, label: "Goregaon West" },
 ];
 
-function HomePage() {
+export default function HomePage() {
   return (
     <div className="overflow-x-clip">
       {/* HERO */}
@@ -252,7 +237,6 @@ function HomePage() {
                 <Reveal key={t.slug} delay={i * 0.05}>
                   <Link
                     to="/treatments"
-                    hash={`treatment-${t.slug}`}
                     className="group block rounded-3xl overflow-hidden bg-card border border-border shadow-card hover:shadow-soft hover:-translate-y-1 transition-all"
                   >
                     <div className="relative aspect-square overflow-hidden">
@@ -358,7 +342,7 @@ function HomePage() {
               <h2 className="mt-3 text-3xl md:text-5xl font-black text-primary-foreground">
                 Your <span className="italic font-light gradient-text-gold">beautiful smile</span> starts here.
               </h2>
-              <p className="mt-4 text-primary-foreground/80">Open Monday – Saturday · 10am–1pm & 5pm–8:30pm</p>
+              <p className="mt-4 text-primary-foreground/80">Open Monday – Saturday · 10am–1pm &amp; 5pm–8:30pm</p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
                 <a href={whatsappLink("Hi! I'd like to book an appointment at Dr. Maitri's Dental Care.")} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full gradient-accent px-6 py-3.5 text-sm font-semibold text-primary shadow-gold">
                   Book on WhatsApp

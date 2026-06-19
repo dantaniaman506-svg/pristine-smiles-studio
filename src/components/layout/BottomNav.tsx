@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink } from "react-router-dom";
 import { Home, Sparkles, Image as ImageIcon, Star, Phone } from "lucide-react";
 
 const tabs = [
@@ -16,15 +16,19 @@ export function BottomNav() {
         {tabs.map((tab) => {
           const Icon = tab.icon;
           return (
-            <Link
+            <NavLink
               key={tab.to}
               to={tab.to}
-              activeOptions={{ exact: true }}
-              className="flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl text-[10px] font-semibold tracking-wider uppercase text-muted-foreground data-[status=active]:text-primary transition-colors"
+              end={tab.to === "/"}
+              className={({ isActive }) =>
+                `flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl text-[10px] font-semibold tracking-wider uppercase transition-colors ${
+                  isActive ? "text-primary" : "text-muted-foreground"
+                }`
+              }
             >
               <Icon className="h-5 w-5" />
               <span>{tab.label}</span>
-            </Link>
+            </NavLink>
           );
         })}
       </div>

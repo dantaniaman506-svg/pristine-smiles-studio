@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { whatsappLink } from "@/lib/site";
 
@@ -21,14 +21,20 @@ export function TopBar() {
 
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.to}
               to={link.to}
-              className="px-4 py-2 rounded-full text-sm font-medium text-foreground/75 hover:text-primary hover:bg-muted transition-colors data-[status=active]:bg-primary data-[status=active]:text-primary-foreground"
-              activeOptions={{ exact: true }}
+              end={link.to === "/"}
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/75 hover:text-primary hover:bg-muted"
+                }`
+              }
             >
               {link.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 

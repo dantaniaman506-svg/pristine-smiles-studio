@@ -1,24 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Star, CheckCircle2 } from "lucide-react";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 import { reviews } from "@/lib/data";
 
-export const Route = createFileRoute("/reviews")({
-  head: () => ({
-    meta: [
-      { title: "Patient Reviews — Dr. Maitri's Dental Care, Goregaon West" },
-      { name: "description", content: "5.0★ on Google. Read what 2,000+ patients say about Dr. Maitri Patel Kova in Goregaon West, Mumbai." },
-      { property: "og:title", content: "Patient Reviews — Dr. Maitri's Dental Care" },
-      { property: "og:description", content: "5.0★ verified Google reviews." },
-      { property: "og:url", content: "/reviews" },
-    ],
-    links: [{ rel: "canonical", href: "/reviews" }],
-  }),
-  component: ReviewsPage,
-});
-
-function ReviewsPage() {
+export default function ReviewsPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12">
       <Reveal>

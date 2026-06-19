@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronRight, CheckCircle2, Plus, X, ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -6,21 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { treatments } from "@/lib/data";
 import { whatsappLink } from "@/lib/site";
 
-export const Route = createFileRoute("/treatments")({
-  head: () => ({
-    meta: [
-      { title: "Dental Treatments — Dr. Maitri's Dental Care, Goregaon West" },
-      { name: "description", content: "Dental implants, cosmetic dentistry, root canal, orthodontics, pediatric care, full mouth rehabilitation and oral surgery." },
-      { property: "og:title", content: "Dental Treatments — Dr. Maitri's Dental Care" },
-      { property: "og:description", content: "Comprehensive dental care under one roof in Goregaon West, Mumbai." },
-      { property: "og:url", content: "/treatments" },
-    ],
-    links: [{ rel: "canonical", href: "/treatments" }],
-  }),
-  component: TreatmentsPage,
-});
-
-function TreatmentsPage() {
+export default function TreatmentsPage() {
   return (
     <div className="max-w-3xl mx-auto px-5 md:px-8 py-8 md:py-12">
       <Reveal><SectionLabel>Our Treatments</SectionLabel></Reveal>
