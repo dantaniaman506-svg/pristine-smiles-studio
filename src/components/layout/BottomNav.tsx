@@ -21,13 +21,13 @@ export function BottomNav() {
               to={tab.to}
               end={tab.to === "/"}
               className={({ isActive }) =>
-                `flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl text-[10px] font-semibold tracking-wider uppercase transition-colors ${
+                `flex flex-col items-center gap-0.5 px-1.5 py-1.5 rounded-xl text-[9px] font-semibold tracking-wide uppercase transition-colors min-w-0 flex-1 ${
                   isActive ? "text-primary" : "text-muted-foreground"
                 }`
               }
             >
-              <Icon className="h-5 w-5" />
-              <span>{tab.label}</span>
+              <Icon className="h-5 w-5 shrink-0" />
+              <span className="truncate w-full text-center">{tab.label}</span>
             </NavLink>
           );
         })}

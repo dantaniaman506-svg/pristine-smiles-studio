@@ -36,8 +36,8 @@ export default function HomePage() {
               </span>
             </Reveal>
             <Reveal delay={0.08}>
-              <h1 className="mt-5 text-[1.85rem] leading-[1.1] sm:text-5xl md:text-6xl font-black tracking-tight text-primary">
-                Creating Healthy <br />
+              <h1 className="mt-5 text-[2rem] leading-[1.12] sm:text-5xl md:text-6xl font-black tracking-tight text-primary">
+                Creating Healthy<br />
                 &amp; <span className="italic font-light gradient-text-gold">Beautiful</span> Smiles.
               </h1>
             </Reveal>
@@ -75,8 +75,8 @@ export default function HomePage() {
             <div className="absolute -inset-6 rounded-[2.5rem] gradient-accent opacity-30 blur-3xl" />
             <div className="relative rounded-[2rem] overflow-hidden shadow-image border border-accent/30">
               <img
-                src={clinicEntranceUrl}
-                alt="Dr. Maitri's Dental Care clinic entrance"
+                src={clinicRoomUrl}
+                alt="Modern dental treatment room at Dr. Maitri's Dental Care"
                 className="w-full h-[440px] md:h-[560px] object-cover"
                 loading="eager"
               />
@@ -104,7 +104,7 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto px-5 md:px-8">
         <Reveal>
           <div className="relative rounded-[2rem] overflow-hidden shadow-image">
-            <img src={clinicRoomUrl} alt="Modern dental treatment room at Dr. Maitri's Dental Care" className="w-full h-[260px] md:h-[420px] object-cover" loading="lazy" />
+            <img src={clinicEntranceUrl} alt="Dr. Maitri's Dental Care clinic entrance" className="w-full h-[260px] md:h-[420px] object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/10 to-transparent" />
             <div className="absolute bottom-5 right-5 md:bottom-8 md:right-8 rounded-2xl bg-background/95 backdrop-blur px-5 py-4 shadow-soft border border-border">
               <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-accent">Modern Clinic</p>
