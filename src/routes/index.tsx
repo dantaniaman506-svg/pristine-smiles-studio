@@ -51,9 +51,9 @@ function HomePage() {
               </span>
             </Reveal>
             <Reveal delay={0.08}>
-              <h1 className="mt-5 text-[2rem] leading-[1.08] sm:text-5xl md:text-6xl font-black tracking-tight text-primary">
-                Creating Healthy <span className="sm:hidden">&amp; </span><br className="hidden sm:inline" />
-                <span className="sm:inline hidden">&amp; </span><span className="italic font-light gradient-text-gold">Beautiful</span> Smiles.
+              <h1 className="mt-5 text-[1.85rem] leading-[1.1] sm:text-5xl md:text-6xl font-black tracking-tight text-primary">
+                Creating Healthy <br />
+                &amp; <span className="italic font-light gradient-text-gold">Beautiful</span> Smiles.
               </h1>
             </Reveal>
             <Reveal delay={0.14}>
