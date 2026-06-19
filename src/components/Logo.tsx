@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoSrc from "@/assets/logo.png";
 import { Link } from "react-router-dom";
 import { clinicName } from "@/lib/site";
 
@@ -23,7 +23,7 @@ export function Logo({ size = 52, showText = true, variant = "default" }: LogoPr
           style={{ background: "var(--gradient-accent)", mixBlendMode: "soft-light" }}
         />
         <img
-          src={logoAsset.url}
+          src={logoSrc}
           alt={`${clinicName} logo`}
           width={size}
           height={size}

@@ -26,11 +26,11 @@ import ortho from "@/assets/treatment-ortho.jpg";
 import fullmouth from "@/assets/treatment-fullmouth.jpg";
 import surgery from "@/assets/treatment-surgery.jpg";
 
-import clinicEntrance from "@/assets/clinic-entrance.jpg.asset.json";
-import clinicRoom from "@/assets/clinic-room.jpg.asset.json";
+import clinicEntrance from "@/assets/clinic-entrance.jpg";
+import clinicRoom from "@/assets/clinic-room.jpg";
 
-export const clinicEntranceUrl = clinicEntrance.url;
-export const clinicRoomUrl = clinicRoom.url;
+export const clinicEntranceUrl = clinicEntrance;
+export const clinicRoomUrl = clinicRoom;
 
 export const treatments = [
   {
