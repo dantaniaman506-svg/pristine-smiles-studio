@@ -31,6 +31,9 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-soft: var(--accent-soft);
+  --color-forest: var(--forest);
+  --color-forest-soft: var(--forest-soft);
+  --color-gold: var(--gold);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -38,15 +41,16 @@
   --color-ring: var(--ring);
   --color-ivory: var(--ivory);
 
-  --shadow-card: 0 2px 16px 0 rgba(60, 30, 10, 0.08);
-  --shadow-soft: 0 4px 24px 0 rgba(60, 30, 10, 0.10);
-  --shadow-image: 0 4px 24px 0 rgba(60, 30, 10, 0.13);
+  --shadow-card: 0 2px 16px 0 rgba(40, 60, 40, 0.08);
+  --shadow-soft: 0 8px 32px 0 rgba(40, 60, 40, 0.12);
+  --shadow-image: 0 12px 40px 0 rgba(40, 60, 40, 0.18);
+  --shadow-gold: 0 8px 30px -8px rgba(190, 145, 70, 0.45);
 }
 
 :root {
   --radius: 1rem;
 
-  /* Warm dental luxury palette */
+  /* Inspired by the clinic: warm wood + deep forest green + brushed gold */
   --background: oklch(0.985 0.012 75);          /* warm ivory */
   --ivory: oklch(0.978 0.018 75);
   --foreground: oklch(0.22 0.04 50);            /* warm dark brown */
@@ -56,28 +60,38 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.04 50);
 
-  --primary: oklch(0.32 0.06 45);               /* deep walnut brown */
+  /* Primary = deep forest green (from clinic cabinetry) */
+  --primary: oklch(0.32 0.06 160);
   --primary-foreground: oklch(0.98 0.012 75);
 
-  --secondary: oklch(0.55 0.07 50);             /* medium brown */
+  /* Secondary = warm walnut wood */
+  --secondary: oklch(0.42 0.07 55);
   --secondary-foreground: oklch(0.98 0.012 75);
 
-  --muted: oklch(0.94 0.018 75);                /* soft cream */
-  --muted-foreground: oklch(0.48 0.04 50);
+  --muted: oklch(0.94 0.018 75);
+  --muted-foreground: oklch(0.45 0.04 55);
 
-  --accent: oklch(0.72 0.13 65);                /* warm gold/copper */
+  /* Accent = brushed gold (from glass panels & wall sign) */
+  --accent: oklch(0.74 0.13 75);
   --accent-foreground: oklch(0.22 0.04 50);
-  --accent-soft: oklch(0.93 0.04 75);           /* light gold tint */
+  --accent-soft: oklch(0.94 0.05 80);
+
+  --forest: oklch(0.32 0.06 160);
+  --forest-soft: oklch(0.95 0.025 160);
+  --gold: oklch(0.74 0.13 75);
 
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0.012 75);
 
   --border: oklch(0.89 0.02 70);
   --input: oklch(0.89 0.02 70);
-  --ring: oklch(0.72 0.13 65);
+  --ring: oklch(0.74 0.13 75);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.32 0.06 45), oklch(0.45 0.07 50));
-  --gradient-accent: linear-gradient(135deg, oklch(0.93 0.04 75), oklch(0.88 0.06 70));
+  /* Signature gradients */
+  --gradient-hero: linear-gradient(135deg, oklch(0.28 0.06 160) 0%, oklch(0.36 0.07 150) 50%, oklch(0.42 0.07 55) 100%);
+  --gradient-accent: linear-gradient(135deg, oklch(0.82 0.14 78) 0%, oklch(0.70 0.13 65) 100%);
+  --gradient-soft: linear-gradient(160deg, oklch(0.985 0.012 75) 0%, oklch(0.95 0.025 160) 100%);
+  --gradient-radial-gold: radial-gradient(ellipse at top, oklch(0.94 0.05 80 / 0.6), transparent 60%);
 }
 
 @layer base {
@@ -109,7 +123,7 @@
   display: inline-block;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -117,9 +131,17 @@
 @utility gradient-hero {
   background: var(--gradient-hero);
 }
-
 @utility gradient-accent {
   background: var(--gradient-accent);
+}
+@utility gradient-soft {
+  background: var(--gradient-soft);
+}
+@utility gradient-text-gold {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @utility shadow-card {
@@ -130,4 +152,24 @@
 }
 @utility shadow-image {
   box-shadow: var(--shadow-image);
+}
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+
+@utility glow-gold {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: var(--gradient-accent);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+  }
+  &:hover::before {
+    opacity: 0.6;
+    filter: blur(12px);
+  }
 }
